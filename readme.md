@@ -6,6 +6,8 @@ more doc. to come.
 
 ## Api
 
+- **register_script**:
+
 ```php
 register_script($name, $path, $dependency=null)
 ```
