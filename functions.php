@@ -113,17 +113,7 @@ function print_styles() {
 }
 
 function get_buffer_file( $file ) {
-    global $_buffer_file;
-    $_buffer_file = $file;
-    $buffer = get_buffer(function(){
-        global $_buffer_file;
-
-        if ( $_buffer_file && file_exists($_buffer_file) ) {
-            include ( $_buffer_file );
-        }
-    });
-
-    unset($GLOBALS['_buffer_file']);
-
-    return $buffer;
+    ob_start();
+    include ( $file );
+    return ob_get_clean();
 }
